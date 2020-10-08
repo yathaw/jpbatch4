@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Pseudo Selector </title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+	<!-- <h1> Pseudo Selector Lesson </h1> -->
+
+	<!-- Focus -->
+	<h2 style="text-align: center;"> Student Form </h2>
+
+	<form>
+	  	<label for="name"> Name</label>
+	  	<input type="text" id="name" name="name" placeholder="Ko Ko">
+	  	<br><br>
+
+	  
+	  	<label for="fname">Father Name</label>
+	  	<input type="text" id="fname" name="fname" placeholder="U Kyaw">
+	  	<br><br>
+
+	  	<label for="phone"> Phone </label>
+	  	<input type="number" id="phone" name="phone" placeholder="09-xxxx">
+	  	<br><br>
+
+
+	  	<label> Date Of Birth </label>
+		<div id="dob_select">
+			<select>
+				<option> Day </option>
+				<option> 1 </option>
+				<option> 2 </option>
+				<option> 3 </option>
+				<option> 4 </option>
+				<option> 5 </option>
+			</select>
+			<select>
+				<option> Month </option>
+				<option> January </option>
+				<option> February </option>
+				<option> March </option>
+				<option> April </option>
+				<option> May </option>
+			</select>
+			<select>
+				<option> Year </option>
+				<option> 2020 </option>
+				<option> 2019 </option>
+				<option> 2018 </option>
+				<option> 2017 </option>
+				<option> 2016 </option>
+			</select>
+		</div>
+		<br>
+
+	  	<label for="email"> Email </label>
+	  	<input type="email" id="email" name="email" placeholder="koko@gmail.com">
+	  	<br><br>
+
+	  	<label for="gender"> Gender </label> <br> 
+
+	  	<input type="radio" name="gender" checked id="male">
+	  	<label for="male"> Male </label>
+
+	  	<input type="radio" name="gender" id="female"> 
+	  	<label for="female"> Female </label>
+		<br> <br>
+
+		<label for="address"> Address </label>
+		<textarea id="address"></textarea>
+
+		<label> Qualification </label><br>
+		<div>
+			<input type="checkbox" id="highschool">
+			<label for="highschool"> High School ( 10th ) </label> 
+		</div>
+
+		<div>
+			<input type="checkbox" id="higherschool" disabled="">
+			<label for="higherschool"> Higher School ( 12th ) </label> 
+		</div>
+		
+		<div>
+			<input type="checkbox" id="graduration">
+			<label for="graduration"> Graduration ( Bachelors ) </label>
+		</div>
+		
+
+		<div>
+			<input type="checkbox" id="master">
+			<label for="master"> Post Graduration ( Masters ) </label>
+		</div>
+		
+		<div>
+			<input type="checkbox" id="phd">
+			<label for="phd"> Phd </label>
+		</div>
+		<br>
+
+		<fieldset id="rule_fieldset">
+			<legend> Rules: </legend>
+
+			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.</p>
+
+			<ul>
+				<li> This is First Rule </li>
+				<li> This is Second Rule </li>
+				<li> This is Third Rule </li>
+				<li> This is Fourth Rule </li>
+				<li> This is Fifth Rule </li>
+				<li> This is Sixth Rule </li>
+				<li> This is Seventh Rule </li>
+			</ul>
+
+			
+		</fieldset>
+		
+		<fieldset id="office_fieldset">
+			<legend> For Office Use only: </legend>
+
+			<div>
+				<input type="checkbox" id="approve">
+				<label for="approve"> Approve / Endorse </label> 
+			</div>
+
+			<div>
+				<input type="checkbox" id="disapprove">
+				<label for="disapprove"> Disapprove / Not Endorse </label> 
+			</div>
+
+			<div class="office_div">
+				<label for="ename"> Employee Name </label>
+				<input id="ename" type="text" value="Mr John" readonly="">
+			
+				<label> Employee Sign </label>
+				<img style="display: block;" src="one.png" width="50px" height="50px">
+			
+				<label for="edate"> Date </label>
+				<input type="text" id="edate" value="8 - 6 - 2020" readonly="">
+			</div>
+			
+
+		</fieldset>
+
+		<p></p>
+		<p class="thankyou"> Thank You </p>
+		<p></p>
+
+		<br> <br>
+
+	</form>
+
+</body>
+</html>

@@ -1,6 +1,10 @@
 /*Universal Selector*/
 *{
-	color: red;
+	/*color: red;*/
+	background-color: #EEEEEE;
+	line-height: 50px;
+
+
 }
 
 /*Element Selector*/
@@ -44,6 +48,74 @@ p>a{
 
 
 
+/*Pseudo Selector - LINK*/
+a[title="Google"]:link{
+	text-decoration:none;
+	color: yellow !important;
+}
+
+a[title="Google"]:hover{
+	background-color: black;
+	color: skyblue !important;
+}
+
+a[title="Google"]:active{
+	background-color: pink !important;
+	color: black;
+}
+
+a[title="Google"]:visited{
+	background-color: gray;
+	color: navy;
+}
+
+:target{
+	background: skyblue;
+	border: 2px solid black;
+}
+
+
+/*Stduent Form*/
+form{
+	width: 80%;
+	margin: auto;
+}
+
+
+input[type=text], input[type="email"], input[type="number"]{
+	width: 100%;
+	border: 3px solid #ccc;
+	transition: 0.5s;
+  	outline: none; /*default custom blue border ko hide pay tr*/
+}
+
+
+#dob_select{
+	width: 90%;
+  	background-color: #EEEEEE;
+  	border-radius: 4px;
+  	outline: none;
+  	margin: auto;
+}
+
+div#dob_select select{
+	width: 30%;
+	outline: none;
+}
+
+
+textarea#address{
+	width: 100%;
+  	height: 100px;
+  	border: 2px solid #ccc;
+  	border-radius: 4px;
+  	background-color: #f8f8f8;
+  	outline: none;
+}
+
+div.office_div{
+	columns: 3;
+}
 
 
 
