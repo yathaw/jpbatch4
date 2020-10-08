@@ -1,0 +1,66 @@
+/*Universal Selector*/
+*{
+	color: red;
+}
+
+/*Element Selector*/
+p{
+	line-height: 40px;
+}
+
+/*ID Selector*/
+#secP{
+	font-style: italic;
+}
+
+/*Class Selector*/
+.firstP{
+	letter-spacing: 5px;
+	word-spacing: 10px;
+}
+
+.textUpper{
+	text-transform: uppercase;
+}
+
+/*Attribute Selector + Grouping Selector */
+a[title="Google"],
+a[title="Facebook"]{
+	text-transform: uppercase;
+}
+
+/*Descendant Selector*/
+p a{
+	text-transform: lowercase;
+	text-decoration-style: double;
+	text-decoration-line: overline;
+}
+
+/*Child Selector*/
+p>a{
+	text-transform: uppercase;
+	text-decoration-style: wavy;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
