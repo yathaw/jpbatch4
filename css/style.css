@@ -225,6 +225,66 @@ div#paddingDiv p:last-child{
 	border: 1px solid black;
 }
 
+/*Float*/
+div#float_left img{
+	width: 600px;
+	height: 350px;
+	float: left;
+}
+
+div#float_right img{
+	width: 40%;
+	float: right;
+}
+
+.clear{
+	clear: both;
+}
+
+/*Flex*/
+div.flexOne div, div.flexTwo div, div.flexThree div, div.flexFour div{
+	color: white;
+	text-align: center;
+	margin: 0 10px;
+	padding: 20px;
+}
+
+div.flexOne, div.flexTwo, div.flexThree, div.flexFour{
+	display: flex;
+}
+
+div.flexOne div{
+	flex: 1;
+	/*
+		flex: flex-grow flex-shrink flex-basis  
+		flex: 	1			1			0
+	*/
+}
+
+/*Flex-Basis => length of the flexible item */
+div.flexTwo div:nth-child(3){
+	flex-basis: 200px;
+}
+
+
+/*Flex-Grow => the flexible item will grow inside the same container*/
+div.flexThree div:nth-child(2){
+	flex-grow: 3;
+}
+
+/*Flex-Direction => direction of the flexible item*/
+div.flexFour{
+	flex-direction: row-reverse;
+
+	/*flex-direction: row|row-reverse|column|column-reverse*/
+	/*row -> default value | displayed horizontally as a row*/
+	/*row-reverse -> Same as row, but in reverse order*/
+	/*column -> displayed vertically, as a column*/
+	/*column-reverse -> Same as column, but in reverse order*/
+}
+
+
+
 
 
 
