@@ -298,7 +298,6 @@ div.gridOne, div.gridTwo, div.gridThree, div.gridFour, div.gridFive{
 	grid-template-columns: auto auto auto;
 }
 
-
 /*Grid Column Gap*/
 div.gridTwo{
 	grid-column-gap: 50px;
@@ -312,10 +311,72 @@ div.gridFour{
 	grid-gap: 100px;
 }
 
-/*div.gridFive div.ColumnOne{
+div.gridFive div.ColumnOne{
 	grid-column-start: 1;
 	grid-column-end: 3;
-}*/
+}
+
+div.ColumnFour{
+	grid-column-start: 2;
+	grid-column-end: 4;
+}
+
+/*Position*/
+div#firstElement{
+	border: 1px solid orange;
+	background-color: orange;
+	color: white;
+}
+
+div#secondElement{
+	border: 1px solid skyblue;
+	background-color: skyblue;
+	color: white;
+}
+
+span#count{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	padding: 5px 10px;
+	background-color: silver;
+
+	position: relative;
+	left: 500px;
+	top: 30px;
+}
+
+div#thirdElement{
+	border: 1px solid darkred;
+	background-color: darkred;
+	color: white;
+
+	position: absolute;
+	left: 300px;
+}
+
+
+div#fourElement{
+	border: 1px solid pink;
+	background-color: pink;
+	color: white;
+
+	position: fixed;
+	top: 30px;
+	right: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
