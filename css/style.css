@@ -283,15 +283,39 @@ div.flexFour{
 	/*column-reverse -> Same as column, but in reverse order*/
 }
 
+/*Grid*/
+div.gridOne div, div.gridTwo div, div.gridThree div, 
+div.gridFour div, div.gridFive div{
+	text-align: center;
+	color: #fff;
+	font-size: 30px;
+	border: 1px solid #bbb;
+	padding: 20px;
+}
+
+div.gridOne, div.gridTwo, div.gridThree, div.gridFour, div.gridFive{
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
 
 
+/*Grid Column Gap*/
+div.gridTwo{
+	grid-column-gap: 50px;
+}
 
+div.gridThree{
+	grid-row-gap: 50px;
+}
 
+div.gridFour{
+	grid-gap: 100px;
+}
 
-
-
-
-
+/*div.gridFive div.ColumnOne{
+	grid-column-start: 1;
+	grid-column-end: 3;
+}*/
 
 
 
