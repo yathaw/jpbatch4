@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Let Vs Const / Looping</title>
+  <script type="text/javascript">
+    const name ="Thet Paing Htut";
+
+    let age = 26;
+
+    age +=1;
+
+    // looping (DRY)
+    let fruits = ['papaya','mango','apple'];
+
+    console.log(fruits);
+
+    for (let i = 0; i < fruits.length; i++) {
+      console.log(fruits[i]);
+    }
+
+    // console.log(i); // local scope
+
+    let students = [
+                {name: 'khin', age:24},
+                {name: 'Su', age:22},
+                {name: 'Sai', age:25}
+              ];
+    //console.log(students);
+
+    for(let student of students){
+      console.log(student.age);
+    }
+
+    // Math Object
+    let num = Math.random(1,20)*10;
+    console.log(num.toFixed(0));
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

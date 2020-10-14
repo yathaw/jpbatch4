@@ -1,0 +1,36 @@
+<!-- 
+  for all functions (+,-,*,/) 
+  create four buttons
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+  <script type="text/javascript">
+    // not using DOM Features / with name
+    function calc() {
+      let num1 = parseInt(document.myForm.num1.value); // ကိန်းပြည့်
+      // console.log(typeof num1);
+      // console.log(num1);
+      let num2 = parseInt(document.myForm.num2.value);
+      let result = num1+num2;
+
+      document.myForm.result.value = result;
+    }
+  </script>
+</head>
+<body>
+  <form method="" action="" name="myForm">
+    <label for="num1">Num1:</label>
+    <input type="number" name="num1" id="num1"><br>
+
+    <label for="num2">Num2:</label>
+    <input type="number" name="num2" id="num2"><br>
+
+    <label for="result">Result:</label>
+    <input type="number" name="result" id="result"><br>
+
+    <button onclick="calc()" type="button">Calculate</button>
+  </form>
+</body>
+</html>
