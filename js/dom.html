@@ -1,0 +1,90 @@
+<!-- DOM (Document Object Model) -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM</title>
+  <script type="text/javascript">
+    // let el0 = document.getElementsByTagName('h1');
+    // console.log(el0); // HTMLCollection[]
+    function showTable() {
+      // Data From Backend
+      let data = [
+        {name: 'Lat', age: 24}, //0
+        {name: 'Si', age: 27}, //1
+        {name: 'Nang', age: 22} //2
+      ];
+
+      let tbody = document.querySelector('#tbody');
+      let mytrs = '';
+      let i = 1;
+      for(let row of data){
+        mytrs += `<tr>
+                    <td>${i++}</td>
+                    <td>${row.name}</td>
+                    <td>${row.age}</td>
+                  </tr>`;
+      }
+
+      tbody.innerHTML = mytrs;
+    }
+  </script>
+</head>
+<body>
+  <h1 id="myh1" class="myh1">Hello DOM</h1>
+  <h2 class="myh1">Hello H2 tag</h2>
+  <p class="myh1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <img src="photo/watch_c.png" alt="Watch Image" id="myimg">
+  <a href="#">A Tag</a>
+
+  <input type="text" name="name" id="name" value="Thet Paing">
+
+  <button onclick="showTable()">ShowData</button>
+
+  <table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      
+    </tbody>
+  </table>
+
+
+  <script type="text/javascript">
+    //alert('ok footer!');
+    let el1 = document.querySelectorAll('.myh1'); // NodeList[]
+    console.log(el1);
+    // console.log(el1[0].innerHTML); // Hello DOM
+    console.log(el1[1].innerHTML);  // Hello H2 Tag
+    console.log(el1[2].innerHTML); // lorem
+    el1[2].style.color ="red";
+
+    let el2 = document.querySelector('#myh1'); // only one element
+    console.log(el2);
+    // console.log(el2.innerHTML); // Hello DOM
+    el2.innerHTML = "<i>Hello DOM with strong tag</i>";
+
+    let el3 = document.getElementById('myh1'); // only one element
+    console.log(el3);
+    // console.log(el3.innerHTML); // Hello DOM
+
+    let el4 = document.querySelector('#myimg'); // img element
+    el4.width = 200;
+    el4.style.display = "block";
+    console.log(el4.src);
+
+    let el5 = document.querySelector('#name');
+    console.log(el5.value);
+
+  </script>
+</body>
+</html>

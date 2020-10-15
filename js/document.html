@@ -8,14 +8,27 @@
   <title>Document</title>
   <script type="text/javascript">
     // not using DOM Features / with name
-    function calc() {
-      let num1 = parseInt(document.myForm.num1.value); // ကိန်းပြည့်
-      // console.log(typeof num1);
-      // console.log(num1);
-      let num2 = parseInt(document.myForm.num2.value);
-      let result = num1+num2;
+    // function calc() {
+    //   let num1 = parseInt(document.myForm.num1.value); // ကိန်းပြည့်
+    //   // console.log(typeof num1);
+    //   // console.log(num1);
+    //   let num2 = parseInt(document.myForm.num2.value);
+    //   let result = num1+num2;
 
-      document.myForm.result.value = result;
+    //   document.myForm.result.value = result;
+    // }
+
+    function calc() {
+      let num1 = parseInt(document.querySelector('#num1').value);
+      let num2 = parseInt(document.querySelector('#num2').value);
+      let total = num1+num2;
+
+      let result = document.querySelector('#result');
+      result.value = total;
+
+      let show = document.querySelector('#showWithP');
+      // show.innerHTML = '<i> sum of numbers: '+total+'</i>';
+      show.innerHTML = `<i> Sum of numbers: ${total} </i>`;
     }
   </script>
 </head>
@@ -29,6 +42,8 @@
 
     <label for="result">Result:</label>
     <input type="number" name="result" id="result"><br>
+
+    <p id="showWithP"></p>
 
     <button onclick="calc()" type="button">Calculate</button>
   </form>
