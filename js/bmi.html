@@ -17,8 +17,52 @@
 <html>
 <head>
   <title>BMI Calculator</title>
+  <style type="text/css">
+    .error{
+      display: none;
+    }
+  </style>
 </head>
 <body>
+  <form method="" action="" onsubmit="return calc()">
+    <fieldset>
+      <legend>Height:</legend>
 
+      <label>Feet:</label>
+      <input type="number" name="feet" id="feet"><small class="error">Feet must be greater than 1.</small><br>
+      
+
+      <label>Inches:</label>
+      <input type="number" name="inches" id="inch">
+    </fieldset>
+
+    <label>Weight: (lb)</label>
+    <input type="number" name="pound" id="pound" required><br>
+
+    <button>Calculate</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script type="text/javascript">
+    function calc() {
+      let feetInput = document.querySelector('#feet');
+      let feet = parseInt(feetInput.value);
+      let inch = parseInt(document.querySelector('#inch').value);
+      let pound = parseInt(document.querySelector('#pound').value);
+      
+      let result = document.querySelector('#result');
+      result.innerHTML = pound;
+
+      let errors = document.querySelectorAll('.error');
+      if (feet<=0) {
+        errors[0].style.display = "inline";
+        errors[0].style.color = "red";
+        feetInput.style.borderColor="red";
+      }
+      
+      return false;
+    }
+  </script>
 </body>
 </html>
