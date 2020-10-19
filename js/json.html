@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSON</title>
+  <script type="text/javascript">
+    let student = {name:'mgmg',age:25};
+    console.log(student);
+    console.log(typeof student);
+
+    let jsonStr = JSON.stringify(student);
+    // console.log(jsonStr);
+    // console.log(typeof jsonStr);
+
+    localStorage.setItem('mykey',jsonStr);
+
+    let data = localStorage.getItem('mykey');
+    console.log(JSON.parse(data));
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

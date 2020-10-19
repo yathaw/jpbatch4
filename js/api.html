@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API - Fetch</title>
+  <script type="text/javascript">
+    if (window.fetch) {
+      async function fetchMemesJSON() {
+        const response = await fetch('https://api.imgflip.com/get_memes');
+        if (!response.ok) {
+          const message = `An error has occured: ${response.status}`;
+          throw new Error(message);
+        }
+        const memes = await response.json();
+        return memes;
+      }
+
+      fetchMemesJSON().then(memes => {
+        // console.log(memes.data); // fetched memes
+        let html = "";
+        for(let meme of memes.data.memes){
+          html+=`<img src="${meme.url}" width="300">`;
+        }
+        document.querySelector('#showMemes').innerHTML = html;
+      }).catch(error => {
+        console.log(error.message); // 'An error has occurred: 404'
+      });
+    }else{
+      console.error('not support');
+    }
+  </script>
+</head>
+<body>
+  <div id="showMemes"></div>
+</body>
+</html>

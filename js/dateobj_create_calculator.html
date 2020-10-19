@@ -3,12 +3,25 @@
 <head>
   <title>Date Obj</title>
   <script type="text/javascript">
-    let now = new Date();
-    let monthName = ['Jan','Feb','Mar','Apr','May','June','Jul','Aug','Sept','Oct','Nov','Dec'];
-    console.log(monthName[now.getMonth()]);
+    // let now = new Date();
+    // let monthName = ['Jan','Feb','Mar','Apr','May','June','Jul','Aug','Sept','Oct','Nov','Dec'];
+    // console.log(monthName[now.getMonth()]);
+
+    function timerFunc() {
+      var now = new Date();
+
+      var hour = now.getHours();
+
+      var min = now.getMinutes();
+
+      var sec = now.getSeconds();
+
+      document.getElementById("clock").innerHTML ="" + hour + ":" + min + ":" + sec;
+    }
+    setInterval('timerFunc()',1000);
   </script>
 </head>
 <body>
-
+  <div id="clock"></div>
 </body>
 </html>

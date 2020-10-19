@@ -20,8 +20,187 @@
   Step 3: (Calculation)
     - Taxable income (yearly salary - all dedutions)
     
-
-
     - Total Tax (yearly)
       - calculate please show TaxRate photo
     - Monthly Tax (total tax % 12) -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tax Calculator</title>
+  <script type="text/javascript">
+    function calc() {
+      let yearlySalary= 0;
+      let totalDedution = 0;
+      let personalRelief = 0;
+      let parentRelief = 0; // father / mother
+      let spouseRelief = 0;
+      let childRelief = 0;
+      let otherDedution = 0;
+      let taxableIncome = 0;
+
+      let monthlySalary = parseInt(document.getElementById('monthlySalary').value);
+      let months = parseInt(document.getElementById('months').value);
+      yearlySalary = monthlySalary*months;
+
+      personalRelief = yearlySalary*0.2;
+
+      let fatherCheck = document.getElementById('father').checked;
+      if (fatherCheck) {
+        parentRelief += 1000000;
+      }
+      let motherCheck = document.getElementById('mother').checked;
+      if (motherCheck) {
+        parentRelief += 1000000;
+      }
+
+      let spouseCheck = document.getElementById('spouse').checked;
+      if (spouseCheck) {
+        spouseRelief += 1000000;
+
+        let children = parseInt(document.getElementById('children').value);
+        if (children>0) {
+          childRelief += (children*500000);
+        }
+      }
+
+      otherDedution += parseInt(document.getElementById('otherDedution').value);
+
+      totalDedution += (personalRelief+parentRelief+spouseRelief+childRelief+otherDedution);
+      
+      taxableIncome += (yearlySalary - totalDedution);
+
+      // show result
+      document.getElementById('result').style.display = "block";
+      document.getElementById('monthlySalaryValue').innerHTML = monthlySalary;
+      document.getElementsByClassName('annualSalaryValue')[0].innerHTML = yearlySalary;
+      document.getElementsByClassName('annualSalaryValue')[1].innerHTML = yearlySalary;
+
+      document.getElementById('personalReliefValue').innerHTML = personalRelief;
+      document.getElementById('parentReliefValue').innerHTML = parentRelief;
+      document.getElementById('spouseReliefValue').innerHTML = spouseRelief;
+      document.getElementById('childReliefValue').innerHTML = childRelief;
+      document.getElementById('otherDedutionValue').innerHTML = otherDedution;
+      document.getElementById('taxableIncomeValue').innerHTML = taxableIncome;
+
+      // show detail
+      document.getElementById('details').style.display = "block";
+      let rate = [
+        {from:0,to:2000000,rate:0,tax:0}, // 0
+        {from:2000000,to:5000000,rate:5,tax:150000}, // 1
+        {from:5000000,to:10000000,rate:10,tax:500000}, // 2
+        {from:10000000,to:20000000,rate:15,tax:1500000},
+        {from:20000000,to:30000000,rate:20,tax:2000000},
+      ];
+
+      let taxTable = rate.filter(r=>r.to<taxableIncome);
+      // console.log(taxableIncome);
+      // console.log(taxTable);
+      let html = "";
+      let total = 0;
+
+      for(let table of taxTable){
+          html +=`<tr>
+                <td>${table.from} to ${table.to}</td>
+                <td>${table.rate}%</td>
+                <td>${table.to-table.from}</td>
+                <td>${table.tax}</td>
+              </tr>`;
+          total += table.tax;
+      }
+
+      let nextObj = rate[taxTable.length]; // next
+      // console.log(nextObj);
+
+      let lastTaxAmount = Math.ceil((taxableIncome - nextObj.from)*(nextObj.rate/100));
+      total += lastTaxAmount;
+
+      html +=`<tr>
+                <td>${nextObj.from} to ${nextObj.to}</td>
+                <td>${nextObj.rate}%</td>
+                <td>${taxableIncome - nextObj.from}</td>
+                <td>${lastTaxAmount}</td>
+              </tr>`;
+
+      document.getElementById('totalTax').innerHTML = total;
+      document.getElementById('monthlyTax').innerHTML = total/12 | 2;
+
+      document.getElementsByTagName('tbody')[0].innerHTML = html;
+
+      return false;
+    }
+  </script>
+  <style type="text/css">
+    #details,#result{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <form onsubmit="return calc()" method="" action="">
+    <label for="monthlySalary">Monthly Salary</label>
+    <input type="number" name="mSalary" id="monthlySalary" required>
+    <br>
+
+    <label for="months">Months</label>
+    <input type="number" name="mSalary" id="months" value="12" readonly>
+    <br>
+
+    <fieldset>
+      <legend>Family member staying together:</legend>
+      <input type="checkbox" name="father" id="father">
+      <label for="father">Father</label>
+
+      <input type="checkbox" name="mother" id="mother">
+      <label for="mother">Mother</label>
+
+      <input type="checkbox" name="spouse" id="spouse">
+      <label for="spouse">Spouse</label>
+    </fieldset>
+
+    <label for="children">Children</label>
+    <input type="number" name="children" id="children">
+    <br>
+
+    <label for="otherDedution">Other Dedutations</label>
+    <input type="number" name="otherDedution" id="otherDedution">
+    <br>
+
+    <input type="submit" name="calculate" value="Calculate">
+  </form>
+
+  <div id="result">
+    <h2>Result</h2>
+
+    <p>Monthly Salary:<strong id="monthlySalaryValue"></strong></p>
+    <p>Annual Salary:<strong class="annualSalaryValue"></strong></p>
+    <p>Income for 12 month(s):<strong class="annualSalaryValue"></strong></p>
+    <p>Personal Relief:<strong id="personalReliefValue"></strong></p>
+    <p>Parent Relief:<strong id="parentReliefValue"></strong></p>
+    <p>Spouse Relief:<strong id="spouseReliefValue"></strong></p>
+    <p>Child Relief:<strong id="childReliefValue"></strong></p>
+    <p>Other deductibles:<strong id="otherDedutionValue"></strong></p>
+    <p>Taxable Income:<strong id="taxableIncomeValue"></strong></p>
+    <p>Total Tax:<strong id="totalTax"></strong></p>
+    <p>Monthly Tax:<strong id="monthlyTax"></strong></p>
+  </div>
+
+  <div id="details">
+    <h2>Details</h2>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Rate</th>
+          <th>Taxable</th>
+          <th>Tax Amount (MMK)</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+    
+</body>
+</html>
