@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animation</title>
+	<style type="text/css">
+		img{
+			position:relative;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btn").click(function(){
+				//$("img").hide(3000);
+				//$("img").fadeOut(3000);
+				$("img").animate({left:'250px'});
+				$("img").animate({top:'250px'});
+				$("img").animate({left:'0px'});
+				$("img").animate({top:'0px'});
+
+
+			})
+		})
+	</script>
+</head>
+<body>
+<img src="download.jpg" width="150" height="100"><br>
+<button id="btn">Animate</button>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQ1</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//("ok");
+
+			$("#btn").click(function(){
+				var name=$("#name").val();
+				$("h4").html("Welcome "+ name);
+			})
+
+
+		})
+	</script>
+</head>
+<body>
+	<h4></h4>
+	Enter your name:<input type="text" name="" id="name">
+	<button id="btn">Show</button>
+
+</body>
+</html>

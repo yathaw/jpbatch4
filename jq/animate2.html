@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animate</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("button").click(function(){
+				$("img").hide(2000,function(){
+					alert("ok");
+				}).show(1000).attr('width',400).attr('height',300)
+			})
+		})
+	</script>
+</head>
+<body>
+	<img src="download.jpg" width="150" height="100">
+	<button>Hide</button>
+</body>
+</html>
