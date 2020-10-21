@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Register</title>
+
+</head>
+<body>
+<div id="divregister">
+	<h3>Student Register Form</h3>
+	Name:<input type="text" name="" id="name"><br>
+	Age:<input type="text" name="" id="age"><br>
+	Address:<input type="text" name="" id="address"><br>
+	Gender:<br>
+	Male:<input type="radio" name="gender" value="male">
+	Female:<input type="radio" name="gender" value="female"><br>
+	<button id="btnregister">Register</button>
+</div>
+
+<div id="divedit">
+	<h3>Student Edit Form</h3>
+	Name:<input type="text" name="" id="ename"><br>
+	Age:<input type="text" name="" id="eage"><br>
+	Address:<input type="text" name="" id="eaddress"><br>
+	Gender:<br>
+	Male:<input type="radio" name="gender" value="male" id="emale">
+	Female:<input type="radio" name="gender" value="female" id="efemale"><br>
+	<button id="btnupdate">Register</button>
+</div>
+
+<div>
+	<h3>Student Table</h3>
+	<table border="1" cellpadding="5">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Address</th>
+				<th>Gender</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody id="mytbody">
+		</tbody>
+	</table>
+</div>
+
+
+
+
+<script type="text/javascript" src="jquery.min.js"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		showTable();
+		$("#divedit").hide();
+
+		$("#btnregister").click(function(){
+			//alert("ok");
+			var name=$("#name").val();
+			var age=$("#age").val();
+			var address=$("#address").val();
+			var gender=$("input[name='gender']:checked").val();
+
+			var student={
+				name:name,
+				age:age,
+				address:address,
+				gender:gender
+			}
+			//console.log(student);
+
+			var studentlist=localStorage.getItem('student');
+			//console.log(studentlist);
+			var mystudentArray;
+			if(studentlist==null){
+				mystudentArray=[];
+			}else{
+				mystudentArray=JSON.parse(studentlist)
+			}
+			mystudentArray.push(student);
+			//console.log(mystudentArray);
+			var stringStudent=JSON.stringify(mystudentArray);
+			localStorage.setItem('student', stringStudent);
+			showTable();
+
+		})
+
+		function showTable(){
+			var studentlist=localStorage.getItem("student");
+
+			if(studentlist){
+				var objStudent=JSON.parse(studentlist);
+				//console.log(objStudent);
+				var j=1;
+				var html="";
+				$.each(objStudent,function(i,v){
+					//console.log(v);
+					
+
+					html+=`<tr>
+						<td>${j++}</td>
+						<td>${v.name}</td>
+						<td>${v.age}</td>
+						<td>${v.address}</td>
+						<td>${v.gender}</td>
+						<td><button data-id="${i}" class="btnedit">Edit</button><button>Delete</button></td>
+					</tr>`
+					//console.log(html);
+				})
+
+				$("#mytbody").html(html);
+			}
+		}
+
+		$("#mytbody").on('click','.btnedit',function(){
+			//alert("ok");
+			$("#divedit").show();
+			$("#divregister").hide();
+			var id=$(this).data("id");
+			//console.log(id);
+			var studentlist=localStorage.getItem("student");
+			var objStudent=JSON.parse(studentlist);
+			var mystudent=objStudent[id];
+			var name=mystudent.name;
+			var age=mystudent.age;
+			var address=mystudent.address;
+			var gender=mystudent.gender;
+
+			$("#ename").val(name);
+			$("#eage").val(age);
+			$("#eaddress").val(address);
+
+			if(gender=="male"){
+				$("#emale").prop("checked","checked");
+			}else{
+				$("#efemale").prop("checked","checked");
+			}
+		})
+
+
+	})
+</script>
+
+
+</body>
+</html>
