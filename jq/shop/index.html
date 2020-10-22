@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shop</title>
+	<style type="text/css">
+		.myshop{
+			float: left;
+			margin-left: 40px;
+		}
+		.shop{
+			float: left;
+		}
+		.clear{
+			clear: both;
+		}
+		.mycart{
+			float: right;
+			margin-right: 50px;
+		}
+		#cart{
+			position: absolute;
+		}
+		#imgg{
+			position: relative;
+			margin-left: 50px;
+		}
+		
+	</style>
+	<script type="text/javascript" src="../jquery.min.js"></script>
+</head>
+<body>
+<div class="shop">
+	<h1 align="center">My Shop</h1>
+	<div class="myshop">
+		<img src="download.jpg" width="100px" height="100px"><br>
+		<p>Humbagar</p>
+		<p>price:5000kyats</p><br>
+		<button class="addtocart" data-id="1" data-name="Humbagar" data-photo="download.jpg" data-price="5000">Add to cart</button>
+	</div>
+
+	<div class="myshop">
+		<img src="2.jpg" width="100px" height="100px"><br>
+		<p>Fried Chicken</p>
+		<p>price:2500kyats</p><br>
+		<button  class="addtocart" data-id="2" data-name="Fried Chicken" data-photo="2.jpg" data-price="2500">Add to cart</button>
+	</div>
+
+	<div class="myshop">
+		<img src="3.jpg" width="100px" height="100px"><br>
+		<p>Fried Rice</p>
+		<p>price:3000kyats</p><br>
+		<button  class="addtocart"  data-id="3" data-name="Fried Rice" data-photo="3.jpg" data-price="3000">Add to cart</button>
+	</div>
+
+	<div class="clear"></div>
+</div>
+
+<div class="mycart">
+	<h1 align="center" style="display: inline;">My cart</h1>
+	<img src="cart1.png" width="50px" height="50px" id="imgg" ><span color="red" id="cart">3</span>
+
+	<table border="1" cellpadding="20px" style="margin-top: 30px">
+		<thead>
+			<th>No</th>
+			<th>Name</th>
+			<th>photo</th>
+			<th>qty</th>
+			<th>price</th>
+			<th>Subtotal</th>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+	<button class="checkout">Check out</button>
+	
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".addtocart").click(function(){
+			//alert("ok");
+			var id=$(this).data("id");
+			var name=$(this).data("name");
+			var photo=$(this).data("photo");
+			var price=$(this).data("price");
+
+			var item={
+				id:id,
+				name:name,
+				photo:photo,
+				price:price,
+				qty:1
+			}
+			//console.log(item);
+			var itemlist=localStorage.getItem("item");
+			var itemArray;
+			if(itemlist==null){
+				itemArray=[];
+			}else{
+				itemArray=JSON.parse(itemlist);
+			}
+
+			itemArray.push(item);
+			var itemString=JSON.stringify(itemArray);
+			localStorage.setItem("item", itemString);
+
+		})
+	})
+</script>
+</body>

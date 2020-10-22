@@ -18,13 +18,14 @@
 
 <div id="divedit">
 	<h3>Student Edit Form</h3>
+	<input type="hidden" name="" id="myid">
 	Name:<input type="text" name="" id="ename"><br>
 	Age:<input type="text" name="" id="eage"><br>
 	Address:<input type="text" name="" id="eaddress"><br>
 	Gender:<br>
 	Male:<input type="radio" name="gender" value="male" id="emale">
 	Female:<input type="radio" name="gender" value="female" id="efemale"><br>
-	<button id="btnupdate">Register</button>
+	<button id="btnupdate">Update</button>
 </div>
 
 <div>
@@ -105,7 +106,7 @@
 						<td>${v.age}</td>
 						<td>${v.address}</td>
 						<td>${v.gender}</td>
-						<td><button data-id="${i}" class="btnedit">Edit</button><button>Delete</button></td>
+						<td><button data-id="${i}" class="btnedit">Edit</button><button class="btndelete" data-id="${i}">Delete</button></td>
 					</tr>`
 					//console.log(html);
 				})
@@ -131,6 +132,7 @@
 			$("#ename").val(name);
 			$("#eage").val(age);
 			$("#eaddress").val(address);
+			$("#myid").val(id);
 
 			if(gender=="male"){
 				$("#emale").prop("checked","checked");
@@ -139,6 +141,39 @@
 			}
 		})
 
+		$("#btnupdate").click(function(){
+			//alert("OK");
+			var id=$("#myid").val();
+			var name=$("#ename").val();
+			var age=$("#eage").val();
+			var address=$("#eaddress").val();
+			var gender=$("input[name='gender']:checked").val();
+
+			var student={
+				name:name,
+				age:age,
+				address:address,
+				gender:gender
+			}
+			var studentlist=localStorage.getItem("student");
+			var studentArray=JSON.parse(studentlist);
+			//console.log(studentArray[id]);
+			studentArray[id]=student;
+			var stringStudent=JSON.stringify(studentArray);
+			localStorage.setItem("student", stringStudent);
+			showTable();
+		})
+
+		$("#mytbody").on('click','.btndelete',function(){
+			//alert("ok");
+			var id=$(this).data("id");
+			var studentlist=localStorage.getItem("student");
+			var studentArray=JSON.parse(studentlist);
+			studentArray.splice(id,1);
+			var stringStudent=JSON.stringify(studentArray);
+			localStorage.setItem("student", stringStudent);
+			showTable();
+		})
 
 	})
 </script>
