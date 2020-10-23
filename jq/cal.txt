@@ -1,0 +1,10 @@
+Gold Calculator Formula
+20g/16.6=1.20481928
+1kyat
+0.20481928*16=3.27710848
+3pae
+0.27710848*8=2.21686784
+2yay
+
+1kyat thar=1000000
+1kyat    3pae/16   2yay/128=????

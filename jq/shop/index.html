@@ -77,6 +77,8 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
+		showdata();
+		cartNoti();
 		$(".addtocart").click(function(){
 			//alert("ok");
 			var id=$(this).data("id");
@@ -91,6 +93,7 @@
 				price:price,
 				qty:1
 			}
+
 			//console.log(item);
 			var itemlist=localStorage.getItem("item");
 			var itemArray;
@@ -99,11 +102,103 @@
 			}else{
 				itemArray=JSON.parse(itemlist);
 			}
-
-			itemArray.push(item);
+			var status=false;
+			$.each(itemArray,function(i,v){
+				if(id==v.id){
+					v.qty++;
+					status=true;
+				}
+			})
+			if(status==false){
+				itemArray.push(item);
+			}
+			
 			var itemString=JSON.stringify(itemArray);
 			localStorage.setItem("item", itemString);
+			showdata();
+			cartNoti();
 
+		})
+
+		function showdata(){
+			var itemlist=localStorage.getItem("item");
+			var itemArray=JSON.parse(itemlist);
+			//console.log(itemArray);
+			var j=1;
+			var html=""
+			var subtotal;
+			var total=0;
+			$.each(itemArray,function(i,v){
+				var qty=v.qty;
+				var price=v.price;
+				subtotal=qty*price;
+				total+=subtotal;
+
+
+				html+=`<tr>
+				<td>${j++}</td>
+				<td>${v.name}</td>
+				<td><img src="${v.photo}" width="50px" height ="50px"></td>
+				<td><button class="btnincrease" data-id="${i}">+</button>${v.qty}<button class="btndecrese" data-id="${i}">-</button></td>
+				<td>${v.price}</td>
+				<td>${subtotal}<button class="remove" data-id="${i}">remove</button></td>
+				</tr>`
+
+			})
+			html+=`<tr><td colspan="5">total</td><td>${total}</td></tr>`
+			$("tbody").html(html);
+
+		}
+		function cartNoti(){
+			var total=0;
+			var itemlist=localStorage.getItem("item");
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+				$.each(itemArray,function(i,v){
+					total+=v.qty;
+				})
+				//console.log(total);
+				$("#cart").html(total);
+			}
+		}
+
+		$("tbody").on('click','.btnincrease',function(){
+			//alert("ok");
+			var id=$(this).data("id");
+			var itemlist=localStorage.getItem("item");
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+				$.each(itemArray,function(i,v){
+					if(i==id){
+						v.qty++;
+					}
+				})
+				var itemString=JSON.stringify(itemArray);
+				localStorage.setItem("item", itemString);
+				showdata();
+				cartNoti();
+			}
+		})
+
+		$("tbody").on('click','.btndecrese',function(){
+			//alert("ok");
+			var id=$(this).data("id");
+			var itemlist=localStorage.getItem("item");
+			if(itemlist){
+				var itemArray=JSON.parse(itemlist);
+				$.each(itemArray,function(i,v){
+					if(i==id){
+						v.qty--;
+						if(v.qty==0){
+							itemArray.splice(id,1);
+						}
+					}
+				})
+				var itemString=JSON.stringify(itemArray);
+				localStorage.setItem("item", itemString);
+				showdata();
+				cartNoti();
+			}
 		})
 	})
 </script>
