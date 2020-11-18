@@ -1,0 +1,71 @@
+Folder Structure
+------------------
+
+onlineshopping
+	-> backend
+	-> favicon
+	-> fonts
+	-> frontend
+	-> icon
+	-> logo
+
+		// Backend
+	-> backendheader.php
+	-> backendfooter.php
+
+	-> category_list.php
+	-> category_new.php
+
+	-> subcategory_list.php
+	-> subcategory_new.php
+
+	-> brand_list.php
+	-> brand_new.php
+
+	-> item_list.php
+	-> item_new.php
+
+	-> customer_list.php
+
+	-> order_list.php
+
+	-> dashboard.php
+
+	-> db_connect.php
+
+		// Frontend
+
+	-> frontendheader.php
+	-> frontendfooter.php
+
+	-> index.php
+
+	-> note.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

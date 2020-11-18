@@ -1,0 +1,53 @@
+@font-face
+{
+	font-family: 'Montserrat_Regular';
+	src: url('../../fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face
+{
+	font-family: 'Montserrat_Medium';
+	src: url('../../fonts/Montserrat/Montserrat-Medium.ttf');
+}
+
+@font-face
+{
+	font-family: 'Montserrat_Light';
+	src: url('../../fonts/Montserrat/Montserrat-Light.ttf');
+}
+
+@font-face
+{
+	font-family: 'Montserrat_Italic';
+	src: url('../../fonts/Montserrat/Montserrat-Italic.ttf');
+}
+
+@font-face
+{
+	font-family: 'Montserrat_Bold';
+	src: url('../../fonts/Montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face
+{
+	font-family: 'Montserrat_Thin';
+	src: url('../../fonts/Montserrat/Montserrat-Thin.ttf');
+}
+
+@font-face
+{
+	font-family: 'CrimsonText_Regular';
+	src: url('../../fonts/Crimson_Text/CrimsonText-Regular.ttf');
+}
+
+@font-face
+{
+	font-family: 'CrimsonText_Bold';
+	src: url('../../fonts/Crimson_Text/CrimsonText-Bold.ttf');
+}
+
+@font-face
+{
+	font-family: 'CrimsonText_SemiBold';
+	src: url('../../fonts/Crimson_Text/CrimsonText-SemiBold.ttf');
+}

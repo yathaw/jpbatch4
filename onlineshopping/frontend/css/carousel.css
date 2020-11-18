@@ -1,0 +1,46 @@
+@media (min-width: 320px) and (max-width: 767px) {
+    .flashsaleInner .flashsaleItem > div {
+        display: none;
+    }
+    .flashsaleInner .flashsaleItem > div:first-child {
+        display: block;
+    }
+}
+
+@media (max-width: 1280px) and (min-width: 768px) {
+    .flashsaleInner .flashsaleItem > div {
+        display: flex;
+    }
+    .flashsaleInner .flashsaleItem > div:first-child {
+        display: flex;
+    }
+}
+
+.flashsaleInner .flashsaleItem.active,
+.flashsaleInner .flashsaleItem-next,
+.flashsaleInner .flashsaleItem-prev {
+    display: flex;
+}
+
+/* display 3 */
+@media (max-width: 1280px) and (min-width: 768px) {
+    
+    .flashsaleInner .flashsaleItem-right.active,
+    .flashsaleInner .flashsaleItem-next {
+      transform: translateX(33.333%);
+    }
+    
+    .flashsaleInner .flashsaleItem-left.active, 
+    .flashsaleInner .flashsaleItem-prev {
+      transform: translateX(-33.333%);
+    }
+}
+.flashsaleInner .flashsaleItem-right,
+.flashsaleInner .flashsaleItem-left{ 
+  transform: translateX(0);
+}
+
+.flashsaleitemImg{
+    height: 300px !important;
+    object-fit: cover;
+}
