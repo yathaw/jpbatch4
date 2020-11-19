@@ -1,12 +1,23 @@
 <?php 
     require 'backendheader.php';
+    require 'db_connect.php';
+
+    $sql = 'SELECT subcategories.*, categories.id as cid, categories.name as cname 
+            FROM subcategories 
+            INNER JOIN categories
+            ON subcategories.category_id = categories.id
+            ORDER BY name';
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+
+    $subcategories = $stmt->fetchAll();
 ?>
     <div class="app-title">
         <div>
             <h1> <i class="icofont-list"></i> Sub-category </h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
-            <a href="" class="btn btn-outline-primary">
+            <a href="subcategory_new.php" class="btn btn-outline-primary">
                 <i class="icofont-plus"></i>
             </a>
         </ul>
@@ -26,10 +37,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+
+                                <?php 
+                                    $i=1;
+                                    foreach ($subcategories as $subcategory) {
+                                    
+                                    $id = $subcategory['id'];
+                                    $name = $subcategory['name'];
+                                    $cid = $subcategory['category_id'];
+                                    $cname = $subcategory['cname'];
+                                ?>
                                 <tr>
-                                    <td> 1. </td>
-                                    <td> aaa </td>
-                                    <td> aaa </td>
+                                    <td> <?= $i++; ?> . </td>
+                                    <td> <?= $name; ?> </td>
+                                    <td> <?= $cname; ?> </td>
 
                                     <td>
                                         <a href="" class="btn btn-warning">
@@ -42,6 +63,9 @@
                                     </td>
 
                                 </tr>
+
+                                <?php } ?>
+
                             </tbody>
                         </table>
                     </div>

@@ -1,5 +1,13 @@
 <?php 
     require 'backendheader.php';
+    require 'db_connect.php';
+
+    $sql = "SELECT * FROM categories ORDER BY name";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+
+    $categories = $stmt->fetchAll();
+
 ?>
     <div class="app-title">
         <div>
@@ -25,9 +33,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                    $i = 1;
+                                    foreach ($categories as $category) {
+                                    
+                                    $id = $category['id'];
+                                    $name = $category['name'];
+
+                                    $photo = $category['logo'];  
+                                    
+                                ?>
                                 <tr>
-                                    <td> 1. </td>
-                                    <td> aaa </td>
+                                    <td> <?php echo $i++; ?>. </td>
+                                    <td> <?= $name; ?>
+                                         <img src="<?= $photo; ?>" style="width: 150px; height: 150px;"> 
+                                    </td>
                                     <td>
                                         <a href="" class="btn btn-warning">
                                             <i class="icofont-ui-settings"></i>
@@ -37,8 +57,10 @@
                                             <i class="icofont-close"></i>
                                         </a>
                                     </td>
-
                                 </tr>
+
+                                <?php } ?>
+
                             </tbody>
                         </table>
                     </div>
