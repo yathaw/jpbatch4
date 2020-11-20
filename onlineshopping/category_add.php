@@ -5,7 +5,7 @@
 	$name = $_POST['name'];
 	$photo = $_FILES['photo'];
 
-	$basepath="photo/category/";
+	$basepath="image/category/";
 	$fullpath=$basepath.$photo['name']; //photo/category/vote1.jpg
 	move_uploaded_file($photo['tmp_name'], $fullpath);
 

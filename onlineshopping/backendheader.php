@@ -119,7 +119,7 @@
                 </li>
 
                 <li>
-                    <a class="app-menu__item" href="dashboard.html">
+                    <a class="app-menu__item" href="brand_list.php">
                         <i class="app-menu__icon icofont-ui-tag"></i>
                         <span class="app-menu__label">
                             Brands 
@@ -128,7 +128,7 @@
                 </li>
 
                 <li>
-                    <a class="app-menu__item" href="dashboard.html">
+                    <a class="app-menu__item" href="item_list.php">
                         <i class="app-menu__icon icofont-package"></i>
                         <span class="app-menu__label">
                             Items
