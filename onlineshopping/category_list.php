@@ -49,7 +49,7 @@
                                          <img src="<?= $photo; ?>" style="width: 150px; height: 150px;"> 
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-warning">
+                                        <a href="category_edit.php?id=<?= $id ?>" class="btn btn-warning">
                                             <i class="icofont-ui-settings"></i>
                                         </a>
 
