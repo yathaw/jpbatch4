@@ -41,6 +41,58 @@ onlineshopping
 	-> index.php
 
 	-> note.txt
+===================================================================================
+
+COOKIE
+-------
+	- browser မှာ cookie cache တွဲသိမ်း
+	- data တွေကို ​cookie မှာတိုက်ရိုက်သိမ်း
+	- ရိုးရိုး txt အနေနဲ့ပဲ သိမ်းလို့ရ
+	- browser - refresh လုပ်တာနဲ့ ပျက်မယ်။
+
+Cookie စဆောက် --->	setcookie("cookie_name", "cookie_data", "time_duration");
+					setcookie("regsuccess", "Register Success", 'time()+3000');
+
+
+Cookie ပြန်ခေါ်သုံး --->	$_COOKIE['cookie_name'];
+					echo $_COOKIE['regsuccess'];
+
+
+Cookie ပြန်ဖျက် ---->	setcookie("cookie_name", "", "time_duration");
+					setcookie("regsuccess", "", "time()-3000");
+
+------------------------------------------------------------------------------
+
+SESSION
+-------
+	- data တွေကို cookie နဲ့အတူ server မှာသိမ်း
+	- ရိုးရိုး text အပြင် array / code သိမ်းလို့ရ
+	- broswer clear လုပ်မှ ပျက်မယ်။
+	- page တိုင်းသယ်သွားလို့ရတယ်။ 
+	- အချိန်သတ်မှတ်လို့မရပါဘူး
+
+Session စဆောက်	--->	session_start();
+						$_SESSION['session_name']="session_data";
+
+Session ပြန်ခေါ်သုံး --->	session_start();
+						echo	$_SESSION['session_name'];
+
+Session ပြန်ဖျက်	--->	session_start();
+
+						unset($_SESSION['session_name']);
+
+						session_destroy();
+
+
+
+
+
+
+
+
+
+
+
 
 
 

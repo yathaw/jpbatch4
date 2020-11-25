@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+
+    // var_dump($_SESSION['login_user']);die();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -67,7 +72,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="page-login.html">
+                        <a class="dropdown-item" href="signout.php">
                             <i class="icofont-logout"></i>
                             Logout
                         </a>
@@ -82,10 +87,11 @@
         <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 
         <aside class="app-sidebar">
-            <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+            <div class="app-sidebar__user">
+                <img class="app-sidebar__user-avatar" src="<?= $_SESSION['login_user']['profile'] ?>" alt="User Image" style="width: 50px; height: 50px;">
                 <div>
-                  <p class="app-sidebar__user-name">John Doe</p>
-                  <p class="app-sidebar__user-designation">Frontend Developer</p>
+                  <p class="app-sidebar__user-name"> <?= $_SESSION['login_user']['name'] ?> </p>
+                  <p class="app-sidebar__user-designation"><?= $_SESSION['login_user']['email'] ?></p>
                 </div>
             </div>
             

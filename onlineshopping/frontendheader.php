@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	require 'db_connect.php';
 
 	$sql = "SELECT * FROM categories ORDER BY name";
@@ -91,8 +92,43 @@
 						</div>
 					</div>
 					<div class="col-lg-4 col-10">
-						<a href="" class="d-xl-block d-lg-block d-md-block d-none  text-decoration-none loginLink float-right"> Login | Sign-up </a>
 
+						<?php 
+							if (isset($_SESSION['login_user'])) {
+						?>
+
+						<a href="javascript:void(0)" class="d-xl-block d-lg-block d-md-block d-none  text-decoration-none loginLink float-right" data-toggle="dropdown" role="button"> 
+							<?= $_SESSION['login_user']['name']; ?>
+							<i class="icofont-rounded-down"></i>
+						</a>
+
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						    <a class="dropdown-item" href="profile.php">
+						    	Profile
+						    </a>
+						  	<div class="dropdown-divider"></div>
+
+
+						    <a class="dropdown-item" href="order_history.php">
+						    	Order History
+						    </a>
+						  	<div class="dropdown-divider"></div>
+
+						  	<a class="dropdown-item" href="secret.php">
+						    	Change Password
+						    </a>
+						  	<div class="dropdown-divider"></div>
+
+						    <a class="dropdown-item" href="signout.php">
+						    	Logout
+						    </a>
+						</div>
+
+						<?php } else{ ?>
+
+						<a href="login.php" class="d-xl-block d-lg-block d-md-block d-none  text-decoration-none loginLink float-right"> Login | Sign-up </a>
+
+						<?php } ?>
 						
 					</div>
 				</div>
