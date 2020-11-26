@@ -57,6 +57,18 @@
     <link rel="stylesheet" type="text/css" href="frontend/css/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="frontend/css/owl.theme.default.css">
 
+    <script type="text/javascript" src="frontend/js/jquery.min.js"></script>
+	<!-- BOOTSTRAP JS -->
+    <script type="text/javascript" src="frontend/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <script type="text/javascript" src="frontend/js/custom.js"></script>
+
+    <!-- Owl Carousel -->
+    <script type="text/javascript" src="frontend/js/owl.carousel.js"></script>
+
+    <!-- Shoppingcart -->
+    <script src="shoppingcart.js"></script>
+
 </head>
 <body>
 

@@ -125,7 +125,7 @@
 									</ul>
 								</div>
 
-								<a href="javascripit:void(0)" class="addtocartBtn text-decoration-none" data-id="<?= $di_id ?>" data-name="<?= $di_name ?>" data-codeno="<?= $di_codeno ?>" data-photo="<?= $di_photo ?>" data-price="<?= $di_price ?>" data-discount="<?= $di_discount ?>"> Add to Cart</a>
+								<a href="javascript:void(0)" class="addtocartBtn text-decoration-none" data-id="<?= $di_id ?>" data-name="<?= $di_name ?>" data-codeno="<?= $di_codeno ?>" data-photo="<?= $di_photo ?>" data-price="<?= $di_price ?>" data-discount="<?= $di_discount ?>"> Add to Cart</a>
 
 		                    </div>
 		                </div>
@@ -187,7 +187,7 @@
 									</ul>
 								</div>
 
-								<a href="javascripit:void(0)" class="addtocartBtn text-decoration-none" data-id="<?= $hi_id ?>" data-name="<?= $hi_name ?>" data-codeno="<?= $hi_codeno ?>" data-photo="<?= $hi_photo ?>" data-price="<?= $hi_price ?>" data-discount="<?= $hi_discount ?>">Add to Cart</a>
+								<a href="javascript:void(0)" class="addtocartBtn text-decoration-none" data-id="<?= $hi_id ?>" data-name="<?= $hi_name ?>" data-codeno="<?= $hi_codeno ?>" data-photo="<?= $hi_photo ?>" data-price="<?= $hi_price ?>" data-discount="<?= $hi_discount ?>">Add to Cart</a>
 
 		                    </div>
 		                </div>
@@ -250,7 +250,7 @@
 									</ul>
 								</div>
 
-								<a href="javascripit:void(0)" class="addtocartBtn text-decoration-none" data-id="<?= $ri_id ?>" data-name="<?= $ri_name ?>" data-codeno="<?= $ri_codeno ?>" data-photo="<?= $ri_photo ?>" data-price="<?= $ri_price ?>" data-discount="<?= $ri_discount ?>">Add to Cart</a>
+								<a href="javascript:void(0)" class="addtocartBtn text-decoration-none" data-id="<?= $ri_id ?>" data-name="<?= $ri_name ?>" data-codeno="<?= $ri_codeno ?>" data-photo="<?= $ri_photo ?>" data-price="<?= $ri_price ?>" data-discount="<?= $ri_discount ?>">Add to Cart</a>
 
 		                    </div>
 		                </div>
